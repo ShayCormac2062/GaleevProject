@@ -1,0 +1,15 @@
+ru\itis\models\User.class
+ru\itis\repositories\UsersRepositoryImpl.class
+ru\itis\repositories\UsersRepository.class
+ru\itis\servlets\RegisterServlet.class
+ru\itis\repositories\AuthRepository.class
+ru\itis\models\Auth.class
+ru\itis\servlets\SignInServlet.class
+ru\itis\services\UsersService.class
+ru\itis\mapper\RowMapper.class
+ru\itis\repositories\CrudRepository.class
+ru\itis\services\UsersServicesImpl.class
+ru\itis\forms\LoginForm.class
+ru\itis\servlets\ProfileServlet.class
+ru\itis\repositories\AuthRepostoryImpl.class
+ru\itis\forms\UserForm.class
