@@ -12,7 +12,7 @@ public class AuthRepostoryImpl implements AuthRepository {
 
     private Connection connection;
 
-    private final String SQL_FIND_BY_COOKIE_VALUE = "SELECT *, auth.id as auth_id, user.id as user_id FROM auth INNER JOIN user ON auth.user_id=user.id WHERE auth.cookie_value=?";
+    private final String SQL_FIND_BY_COOKIE_VALUE = "SELECT *, auth.id as auth_id, \"user\".id as user_id FROM \"auth\" INNER JOIN \"user\" ON auth.user_id=\"user\".id WHERE auth.cookie_value=?;";
     private final String SQL_INSERT_AUTH = "INSERT INTO auth (user_id, cookie_value) VALUES (?, ?)";
 
 
@@ -26,10 +26,12 @@ public class AuthRepostoryImpl implements AuthRepository {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(SQL_FIND_BY_COOKIE_VALUE);
             preparedStatement.setString(1, cookieValue);
-            resultSet = preparedStatement.executeQuery();
+            preparedStatement.executeQuery();
+            resultSet = preparedStatement.getResultSet();
             Auth auth = authRowMapper.rowMap(resultSet);
             return auth;
-        } catch (Exception e) {
+        } catch (SQLException throwables) {
+            System.out.println("Что-то пошло не так!");
             return null;
         }
     }
@@ -63,7 +65,7 @@ public class AuthRepostoryImpl implements AuthRepository {
 
     }
 
-    private RowMapper<Auth> authRowMapper = (resultSet) -> {
+    private RowMapper<Auth> authRowMapper = (resultSet -> {
         if (resultSet.next()) {
             Auth auth = new Auth();
             auth.setId(resultSet.getLong("auth_id"));
@@ -73,7 +75,7 @@ public class AuthRepostoryImpl implements AuthRepository {
             user.setId(resultSet.getLong("user_id"));
             user.setFirstName(resultSet.getString("first_name"));
             user.setLastName(resultSet.getString("last_name"));
-            user.setEmail(resultSet.getString("login"));
+            user.setEmail(resultSet.getString("email"));
             user.setPasswordHash(resultSet.getString("password_hash"));
 
             auth.setUser(user);
@@ -81,5 +83,5 @@ public class AuthRepostoryImpl implements AuthRepository {
         } else {
             return null;
         }
-    };
+    });
 }

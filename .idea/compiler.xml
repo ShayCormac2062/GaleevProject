@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="WebAppProject" />
         <module name="Web_Application" />
+        <module name="web-application" />
       </profile>
     </annotationProcessing>
   </component>

@@ -65,7 +65,7 @@ public class UsersRepositoryImpl implements UsersRepository {
             if (resultSet.next()) {
                 user = new User();
                 user.setId(resultSet.getLong("id"));
-                user.setEmail(resultSet.getString("login"));
+                user.setEmail(resultSet.getString("email"));
                 user.setPasswordHash(resultSet.getString("password_hash"));
                 user.setLastName(resultSet.getString("last_name"));
                 user.setFirstName(resultSet.getString("first_name"));

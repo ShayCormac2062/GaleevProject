@@ -32,24 +32,25 @@
 <body>
 
 <div class="container-login100">
-	<form class="wrap-login100">
-		<form action="/login" method="post" class="form">
-			<form class="login100-form validate-form">
+	<div class="wrap-login100">
+		<form action="/login" method="post" class="login100-form validate-form">
 					<span class="login100-form-title p-b-26">
 						Добро пожаловать на "Эх, прокачу!"
 					</span>
 
 				<div class="wrap-input100 validate-input" data-validate = "Почта должна содержать '@'">
-					<input id="email" class="input100" type="text" name="email">
-					<span class="focus-input100" data-placeholder="Почта"></span>
+					<label for="email"><input id="email" class="input100" type="text" name="email">
+					<span class="focus-input100" data-placeholder="Почта"></span></label>
 				</div>
 
 				<div class="wrap-input100 validate-input" data-validate="Введите пароль">
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
-					<input id="pass" class="input100" type="password" name="pass">
+					<label for="pass">
+						<input id="pass" class="input100" type="password" name="pass">
 					<span class="focus-input100" data-placeholder="Пароль"></span>
+					</label>
 				</div>
 
 				<div class="container-login100-form-btn">
@@ -70,9 +71,8 @@
 						Зарегестрируйтесь
 					</a>
 				</div>
-			</form>
 		</form>
-	</form>
+	</div>
 </div>
 
 

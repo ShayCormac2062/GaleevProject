@@ -46,6 +46,7 @@ public class SignInServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        init();
         req.getRequestDispatcher("Login_v2/login.jsp").forward(req, resp);
     }
 
@@ -62,7 +63,7 @@ public class SignInServlet extends HttpServlet {
             resp.sendRedirect("/profile");
         } else {
             req.setAttribute("signInStatus", "Неправильный логин или пароль");
-            req.getRequestDispatcher("jsp/login.jsp").forward(req, resp);
+            req.getRequestDispatcher("Login_v2/jsp/login.jsp").forward(req, resp);
         }
     }
 

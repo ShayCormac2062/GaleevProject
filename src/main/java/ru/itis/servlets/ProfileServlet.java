@@ -47,22 +47,19 @@ public class ProfileServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        if (Arrays.stream(request.getCookies())
-                .anyMatch(cookie -> cookie.getName().equals("auth"))){
-            User user = usersService.findUserByCookieValue(Arrays.stream(request.getCookies())
-                    .filter(cookie -> cookie.getName().equals("auth"))
-                    .findFirst().get().getValue());
-            if (user != null) {
-                request.setAttribute("user", user);
-                request.getRequestDispatcher("BlaBlaCar/main_page.html").forward(request, response);
-            } else response.sendRedirect("/sign_in");
-        } else response.sendRedirect("/sign_in");
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String firstName = request.getParameter("first_name");
-        String lastName = request.getParameter("last_name");
-        System.out.println(firstName + " " + lastName);
+        User user = usersService.findUserByCookieValue(Arrays.stream(request.getCookies())
+                .filter(cookie -> cookie.getName().equals("auth"))
+                .findAny().get().getValue());
+        if (user != null) {
+            request.setAttribute("user", user);
+            request.getRequestDispatcher("BlaBlaCar/main_page.jsp").forward(request, response);
+        } else {
+            user = new User();
+            user.setId((long) 9999);
+            user.setEmail("Треугольнаязалупа.com");
+            user.setPasswordHash("mkcdad");
+            user.setLastName("Вход");
+            user.setFirstName("Вход");
+        }
     }
 }
