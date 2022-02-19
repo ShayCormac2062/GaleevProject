@@ -51,8 +51,8 @@
 
 
                 <div class="wrap-input100 validate-input" data-validate = "Почта должна содержать '@'">
-                    <input class="input100" type="text" name="email">
-                    <span class="focus-input100" data-placeholder="Почта"></span>
+                    <label for="email"><input id="email" class="input100" type="text" name="email">
+                        <span class="focus-input100" data-placeholder="Почта"></span></label>
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Введите пароль">

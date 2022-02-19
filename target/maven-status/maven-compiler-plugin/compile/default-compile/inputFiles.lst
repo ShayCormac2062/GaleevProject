@@ -1,15 +1,21 @@
-C:\Users\Башир\IdeaProjects\GaleevProject\src\main\java\ru\itis\forms\LoginForm.java
-C:\Users\Башир\IdeaProjects\GaleevProject\src\main\java\ru\itis\servlets\RegisterServlet.java
-C:\Users\Башир\IdeaProjects\GaleevProject\src\main\java\ru\itis\repositories\AuthRepostoryImpl.java
-C:\Users\Башир\IdeaProjects\GaleevProject\src\main\java\ru\itis\repositories\UsersRepository.java
-C:\Users\Башир\IdeaProjects\GaleevProject\src\main\java\ru\itis\mapper\RowMapper.java
-C:\Users\Башир\IdeaProjects\GaleevProject\src\main\java\ru\itis\services\UsersService.java
-C:\Users\Башир\IdeaProjects\GaleevProject\src\main\java\ru\itis\services\UsersServicesImpl.java
-C:\Users\Башир\IdeaProjects\GaleevProject\src\main\java\ru\itis\repositories\AuthRepository.java
-C:\Users\Башир\IdeaProjects\GaleevProject\src\main\java\ru\itis\servlets\SignInServlet.java
-C:\Users\Башир\IdeaProjects\GaleevProject\src\main\java\ru\itis\forms\UserForm.java
-C:\Users\Башир\IdeaProjects\GaleevProject\src\main\java\ru\itis\repositories\CrudRepository.java
-C:\Users\Башир\IdeaProjects\GaleevProject\src\main\java\ru\itis\servlets\ProfileServlet.java
-C:\Users\Башир\IdeaProjects\GaleevProject\src\main\java\ru\itis\models\User.java
-C:\Users\Башир\IdeaProjects\GaleevProject\src\main\java\ru\itis\repositories\UsersRepositoryImpl.java
-C:\Users\Башир\IdeaProjects\GaleevProject\src\main\java\ru\itis\models\Auth.java
+C:\Users\Башир\IdeaProjects\3 semestr\GaleevProject\src\main\java\ru\itis\filters\AuthFilter.java
+C:\Users\Башир\IdeaProjects\3 semestr\GaleevProject\src\main\java\ru\itis\servlets\PostRideServlet.java
+C:\Users\Башир\IdeaProjects\3 semestr\GaleevProject\src\main\java\ru\itis\servlets\SignInServlet.java
+C:\Users\Башир\IdeaProjects\3 semestr\GaleevProject\src\main\java\ru\itis\repositories\AuthRepository.java
+C:\Users\Башир\IdeaProjects\3 semestr\GaleevProject\src\main\java\ru\itis\servlets\RegisterServlet.java
+C:\Users\Башир\IdeaProjects\3 semestr\GaleevProject\src\main\java\ru\itis\mapper\RowMapper.java
+C:\Users\Башир\IdeaProjects\3 semestr\GaleevProject\src\main\java\ru\itis\repositories\AuthRepostoryImpl.java
+C:\Users\Башир\IdeaProjects\3 semestr\GaleevProject\src\main\java\ru\itis\servlets\ChatServlet.java
+C:\Users\Башир\IdeaProjects\3 semestr\GaleevProject\src\main\java\ru\itis\models\Auth.java
+C:\Users\Башир\IdeaProjects\3 semestr\GaleevProject\src\main\java\ru\itis\servlets\ProfileServlet.java
+C:\Users\Башир\IdeaProjects\3 semestr\GaleevProject\src\main\java\ru\itis\repositories\UsersRepository.java
+C:\Users\Башир\IdeaProjects\3 semestr\GaleevProject\src\main\java\ru\itis\models\Message.java
+C:\Users\Башир\IdeaProjects\3 semestr\GaleevProject\src\main\java\ru\itis\forms\UserForm.java
+C:\Users\Башир\IdeaProjects\3 semestr\GaleevProject\src\main\java\ru\itis\services\UsersServicesImpl.java
+C:\Users\Башир\IdeaProjects\3 semestr\GaleevProject\src\main\java\ru\itis\models\User.java
+C:\Users\Башир\IdeaProjects\3 semestr\GaleevProject\src\main\java\ru\itis\forms\LoginForm.java
+C:\Users\Башир\IdeaProjects\3 semestr\GaleevProject\src\main\java\ru\itis\repositories\UsersRepositoryImpl.java
+C:\Users\Башир\IdeaProjects\3 semestr\GaleevProject\src\main\java\ru\itis\repositories\MessageRepositoryImpl.java
+C:\Users\Башир\IdeaProjects\3 semestr\GaleevProject\src\main\java\ru\itis\repositories\CrudRepository.java
+C:\Users\Башир\IdeaProjects\3 semestr\GaleevProject\src\main\java\ru\itis\services\UsersService.java
+C:\Users\Башир\IdeaProjects\3 semestr\GaleevProject\src\main\java\ru\itis\repositories\MessageRepository.java

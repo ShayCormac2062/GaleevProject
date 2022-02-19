@@ -1,6 +1,7 @@
 ru\itis\models\User.class
 ru\itis\repositories\UsersRepositoryImpl.class
 ru\itis\repositories\UsersRepository.class
+ru\itis\servlets\ChatServlet.class
 ru\itis\servlets\RegisterServlet.class
 ru\itis\repositories\AuthRepository.class
 ru\itis\models\Auth.class
@@ -10,6 +11,11 @@ ru\itis\mapper\RowMapper.class
 ru\itis\repositories\CrudRepository.class
 ru\itis\services\UsersServicesImpl.class
 ru\itis\forms\LoginForm.class
+ru\itis\repositories\MessageRepository.class
+ru\itis\servlets\PostRideServlet.class
 ru\itis\servlets\ProfileServlet.class
+ru\itis\filters\AuthFilter.class
+ru\itis\models\Message.class
+ru\itis\repositories\MessageRepositoryImpl.class
 ru\itis\repositories\AuthRepostoryImpl.class
 ru\itis\forms\UserForm.class

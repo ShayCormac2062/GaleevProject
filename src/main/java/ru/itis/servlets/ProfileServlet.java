@@ -20,6 +20,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Arrays;
+import java.util.NoSuchElementException;
 
 @WebServlet("/profile")
 public class ProfileServlet extends HttpServlet {
@@ -47,12 +48,16 @@ public class ProfileServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        User user = usersService.findUserByCookieValue(Arrays.stream(request.getCookies())
-                .filter(cookie -> cookie.getName().equals("auth"))
-                .findAny().get().getValue());
+        User user = null;
+        try {
+            user = usersService.findUserByCookieValue(Arrays.stream(request.getCookies())
+                    .filter(cookie -> cookie.getName().equals("auth"))
+                    .findAny().get().getValue());
+        } catch (NoSuchElementException e) {
+
+        }
         if (user != null) {
             request.setAttribute("user", user);
-            request.getRequestDispatcher("BlaBlaCar/main_page.jsp").forward(request, response);
         } else {
             user = new User();
             user.setId((long) 9999);
@@ -61,5 +66,7 @@ public class ProfileServlet extends HttpServlet {
             user.setLastName("Вход");
             user.setFirstName("Вход");
         }
+        request.setAttribute("user", user);
+        request.getRequestDispatcher("BlaBlaCar/main_page.jsp").forward(request, response);
     }
 }

@@ -10,6 +10,7 @@
         <module name="WebAppProject" />
         <module name="Web_Application" />
         <module name="web-application" />
+        <module name="GaleevProject" />
       </profile>
     </annotationProcessing>
   </component>

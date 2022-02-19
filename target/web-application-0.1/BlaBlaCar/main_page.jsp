@@ -12,9 +12,9 @@
 <header class="header">
     <h1>Эх, Прокачу!!!</h1>
     <div class="nav">
-        <input type="submit" class="trip" value="Опубликовать поездку">
+        <button id="writeTextButton" class="trip">Опубликовать поездку</button>
             <div class="nav1">
-                <button id="loginButton" class="signup">"${user.firstName}"</button>
+                <button id="loginButton" class="signup">${user.firstName}</button>
                 <button id="registerButton" class="signup">Регистрация</button>
             </div>
         </div>
@@ -44,7 +44,7 @@
         <img src="https://images.unsplash.com/photo-1486496572940-2bb2341fdbdf?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80" alt="авто">
         <div class="block">
             <p>Хотите куда-нибудь поехать,<br> но не нашли попутчиков? <br>Напишите об этом <br>в нашем имейджборде!</p>
-            <div class="button"><a href="BlaBlaCar/imagebord.html">Перейти в общий чат</a></div>
+            <button id="goToChat" class="button">Перейти в общий чат</button>
         </div>
     </div>
 </main>
@@ -61,6 +61,12 @@
 </footer>
 
 <script type="text/javascript">
+    document.getElementById("goToChat").onclick = function () {
+        location.href = "/chat";
+    }
+    document.getElementById("writeTextButton").onclick = function () {
+        location.href = "/post_ride";
+    }
     document.getElementById("loginButton").onclick = function () {
         location.href = "/login";
     };

@@ -8,6 +8,7 @@ html {
 body {
     width: 100%;
     max-width: 110%;
+    overflow-x: hidden;
 }
 
 a {
@@ -25,7 +26,7 @@ input:hover {
 
 .header {
     background-color: white;
-    margin: 20px 40px 30px 150px;
+    margin: 20px 60px 30px 150px;
 }
 
 .trip {
@@ -76,12 +77,12 @@ input:hover {
     margin: 0;
 }
 
-.container_1 h6 {
-    font-size: 40px;
+.container_1 h4 {
+    font-size: 46px;
     color: white;
     font-weight: bold;
     margin-left: 800px;
-    padding-top: 250px;
+    padding-top: 230px;
 }
 
 .container_2 {
@@ -108,12 +109,12 @@ input:hover {
     width: 500px;
     height: 300px;
     margin-top: 150px;
-    margin-left: 100px;
+    margin-left: 120px;
 }
 
 .container_3 p {
     font-size: 40px;
-    margin-left: 180px;
+    margin-left: 230px;
     margin-top: 160px;
 }
 
@@ -130,7 +131,7 @@ input:hover {
     border-radius: 4px;
     width: 300px;
     padding: 15px 25px;
-    margin-left: 200px;
+    margin-left: 260px;
     cursor: pointer;
     text-align: center;
 }
@@ -165,15 +166,15 @@ p.footer {
 
 .imagebord {
     margin-left: 300px;
-    size: auto;
-    overflow: hidden;
+    overflow-x: hidden;
     padding: 0;
 }
 
 .background {
     width: 1000px;
-    height: 100vh;
+    height: 1000px;
     background-color: #ABE8A9;
+    margin-top: 10px;
 }
 
 .header-chat h1 {
@@ -184,31 +185,69 @@ p.footer {
     padding-top: 15px;
 }
 
-.main-chat {
-    text-align: center;
-}
-
-.form input {
-    border-radius: 4px;
-    border: gray;
-    margin-top: 450px;
-    margin-left: 10px;
-    padding: 10px 0;
-}
-
-.mes {
-    width: 600px;
-}
-
-.send {
-    width: 100px;
-}
-
 .footer-chat .signup {
     height: 30px;
     padding: 5px;
     font-size: 20px;
     text-align: center;
-    margin-top: 40px;
+    margin-top: 360px;
     margin-left: 30px;
+}
+
+.message {
+    border-radius: 15px;
+    height: 200px;
+    width: 400px;
+    background: rgba(255, 245, 215, 0.6);
+    margin: 0 30px;
+}
+
+/* Chat containers */
+.container {
+    border: 2px solid #dedede;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+/* Darker chat container */
+.darker {
+    margin: 15px 30px;
+    background: rgba(255, 245, 215, 0.6);
+}
+
+/* Clear floats */
+.container::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Style images */
+.container img {
+    float: left;
+    max-width: 60px;
+    width: 100%;
+    margin-right: 20px;
+    border-radius: 50%;
+}
+
+/* Style the right image */
+.container img.right {
+    float: right;
+    margin-left: 20px;
+    margin-right:0;
+}
+
+/* Style time text */
+.time-right {
+    float: right;
+    color: #aaa;
+}
+
+/* Style time text */
+.time-left {
+    float: left;
+    color: #999;
 }
