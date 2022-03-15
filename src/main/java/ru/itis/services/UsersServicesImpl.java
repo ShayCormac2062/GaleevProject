@@ -1,7 +1,9 @@
 package ru.itis.services;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 import ru.itis.forms.LoginForm;
 import ru.itis.forms.UserForm;
 import ru.itis.models.Auth;
@@ -10,22 +12,40 @@ import ru.itis.repositories.AuthRepository;
 import ru.itis.repositories.UsersRepository;
 
 import javax.servlet.http.Cookie;
+import java.util.List;
 import java.util.UUID;
 
+@Service("usersService")
 public class UsersServicesImpl implements UsersService {
 
+    @Autowired
     private UsersRepository usersRepository;
+
+    @Autowired
     private AuthRepository authRepository;
+
+    @Autowired
     private PasswordEncoder passwordEncoder;
 
+    public UsersServicesImpl() {}
     public UsersServicesImpl(UsersRepository usersRepository) {
         this.usersRepository = usersRepository;
-        this.passwordEncoder = new BCryptPasswordEncoder();
     }
     public UsersServicesImpl(UsersRepository usersRepository, AuthRepository authRepository) {
         this.usersRepository = usersRepository;
         this.authRepository = authRepository;
-        this.passwordEncoder = new BCryptPasswordEncoder();
+    }
+
+    public void setUsersRepository(UsersRepository usersRepository) {
+        this.usersRepository = usersRepository;
+    }
+
+    public void setAuthRepository(AuthRepository authRepository) {
+        this.authRepository = authRepository;
+    }
+
+    public void setPasswordEncoder(PasswordEncoder passwordEncoder) {
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
@@ -38,7 +58,7 @@ public class UsersServicesImpl implements UsersService {
 
         String passwordHash = passwordEncoder.encode(userForm.getPassword());
 
-        user.setPasswordHash(passwordHash);
+        user.setPassword(passwordHash);
 
         return usersRepository.save(user);
     }
@@ -49,7 +69,7 @@ public class UsersServicesImpl implements UsersService {
         User user = usersRepository.findByLogin(loginForm.getEmail());
 
         if (user != null) {
-            if (passwordEncoder.matches(loginForm.getPassword(), user.getPasswordHash())) {
+            if (passwordEncoder.matches(loginForm.getPassword(), user.getPassword())) {
 
                 String cookieValue = UUID.randomUUID().toString();
 
@@ -76,5 +96,10 @@ public class UsersServicesImpl implements UsersService {
         } else {
             return null;
         }
+    }
+
+    @Override
+    public List<User> findAll() {
+        return usersRepository.findAll(0);
     }
 }

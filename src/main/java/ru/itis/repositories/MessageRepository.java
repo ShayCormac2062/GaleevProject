@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface MessageRepository {
     List<Message> findAllMessages();
-    void addMessage(User user, String where, String car, String man, String other);
+    Message addMessage(User user, String where, String car, String man, String other);
 }

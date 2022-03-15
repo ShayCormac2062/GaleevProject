@@ -1,0 +1,22 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="ru.itis.models.User" table="user">
+        <id name="id" type="java.lang.Long">
+            <generator class="identity"/>
+        </id>
+
+        <property name="email"/>
+        <property name="firstName"/>
+        <property name="lastName"/>
+
+        <bag name="messages">
+            <key>
+                <column name="user_id"/>
+            </key>
+            <one-to-many class="ru.itis.models.Message"/>
+        </bag>
+    </class>
+</hibernate-mapping>

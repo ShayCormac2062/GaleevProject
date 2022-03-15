@@ -2,7 +2,7 @@ package ru.itis.servlets;
 
 import ru.itis.models.User;
 import ru.itis.repositories.AuthRepository;
-import ru.itis.repositories.AuthRepostoryImpl;
+import ru.itis.repositories.AuthRepositoryImpl;
 import ru.itis.repositories.UsersRepository;
 import ru.itis.repositories.UsersRepositoryImpl;
 import ru.itis.services.UsersService;
@@ -11,7 +11,6 @@ import ru.itis.services.UsersServicesImpl;
 import javax.servlet.ServletException;
 import javax.servlet.UnavailableException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -38,7 +37,7 @@ public class ProfileServlet extends HttpServlet {
             Connection connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
 
             UsersRepository usersRepository = new UsersRepositoryImpl(connection);
-            AuthRepository authRepository = new AuthRepostoryImpl(connection);
+            AuthRepository authRepository = new AuthRepositoryImpl(connection);
             usersService = new UsersServicesImpl(usersRepository, authRepository);
         } catch (SQLException | ClassNotFoundException e) {
             System.out.println("Unavailable");
@@ -62,7 +61,7 @@ public class ProfileServlet extends HttpServlet {
             user = new User();
             user.setId((long) 9999);
             user.setEmail("Треугольнаязалупа.com");
-            user.setPasswordHash("mkcdad");
+            user.setPassword("mkcdad");
             user.setLastName("Вход");
             user.setFirstName("Вход");
         }

@@ -1,5 +1,9 @@
 package ru.itis.repositories;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.stereotype.Repository;
 import ru.itis.mapper.RowMapper;
 import ru.itis.models.Auth;
 import ru.itis.models.User;
@@ -8,15 +12,29 @@ import java.sql.*;
 import java.util.List;
 import java.util.Optional;
 
-public class AuthRepostoryImpl implements AuthRepository {
+@Repository("authRepositoryImpl")
+public class AuthRepositoryImpl implements AuthRepository {
 
     private Connection connection;
+    @Autowired
+    private JdbcTemplate template;
+
+    @Autowired
+    private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
     private final String SQL_FIND_BY_COOKIE_VALUE = "SELECT *, auth.id as auth_id, \"user\".id as user_id FROM \"auth\" INNER JOIN \"user\" ON auth.user_id=\"user\".id WHERE auth.cookie_value=?;";
     private final String SQL_INSERT_AUTH = "INSERT INTO auth (user_id, cookie_value) VALUES (?, ?)";
 
+    public AuthRepositoryImpl() {}
+    public AuthRepositoryImpl(Connection connection) {
+        this.connection = connection;
+    }
+    public AuthRepositoryImpl(JdbcTemplate template, NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
+        this.template = template;
+        this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
+    }
 
-    public AuthRepostoryImpl(Connection connection) {
+    public void setConnection(Connection connection) {
         this.connection = connection;
     }
 
@@ -37,11 +55,60 @@ public class AuthRepostoryImpl implements AuthRepository {
     }
 
     @Override
+    public <S extends Auth> Iterable<S> saveAll(Iterable<S> entities) {
+        return null;
+    }
+
+    @Override
+    public Optional<Auth> findById(String s) {
+        return Optional.of(findByCookieValue(s));
+    }
+
+    @Override
+    public boolean existsById(String s) {
+        return false;
+    }
+
+    @Override
     public List<Auth> findAll() {
         return null;
     }
 
     @Override
+    public Iterable<Auth> findAllById(Iterable<String> strings) {
+        return null;
+    }
+
+    @Override
+    public long count() {
+        return 0;
+    }
+
+    @Override
+    public void deleteById(String s) {
+
+    }
+
+    @Override
+    public void delete(Auth entity) {
+
+    }
+
+    @Override
+    public void deleteAllById(Iterable<? extends String> strings) {
+
+    }
+
+    @Override
+    public void deleteAll(Iterable<? extends Auth> entities) {
+
+    }
+
+    @Override
+    public void deleteAll() {
+
+    }
+
     public Optional<Auth> findById(Long id) {
         return Optional.empty();
     }
@@ -60,11 +127,6 @@ public class AuthRepostoryImpl implements AuthRepository {
         return auth;
     }
 
-    @Override
-    public void deleteById(Long id) {
-
-    }
-
     private RowMapper<Auth> authRowMapper = (resultSet -> {
         if (resultSet.next()) {
             Auth auth = new Auth();
@@ -76,7 +138,7 @@ public class AuthRepostoryImpl implements AuthRepository {
             user.setFirstName(resultSet.getString("first_name"));
             user.setLastName(resultSet.getString("last_name"));
             user.setEmail(resultSet.getString("email"));
-            user.setPasswordHash(resultSet.getString("password_hash"));
+            user.setPassword(resultSet.getString("password_hash"));
 
             auth.setUser(user);
             return auth;

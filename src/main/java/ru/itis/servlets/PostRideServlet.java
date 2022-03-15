@@ -35,7 +35,7 @@ public class PostRideServlet extends HttpServlet {
             Class.forName("org.postgresql.Driver");
             Connection connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
             UsersRepository usersRepository = new UsersRepositoryImpl(connection);
-            authRepository = new AuthRepostoryImpl(connection);
+            authRepository = new AuthRepositoryImpl(connection);
             usersService = new UsersServicesImpl(usersRepository, authRepository);
             messageRepository = new MessageRepositoryImpl(connection);
         } catch (SQLException | ClassNotFoundException e) {

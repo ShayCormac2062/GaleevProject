@@ -2,7 +2,7 @@ package ru.itis.servlets;
 
 import ru.itis.forms.LoginForm;
 import ru.itis.repositories.AuthRepository;
-import ru.itis.repositories.AuthRepostoryImpl;
+import ru.itis.repositories.AuthRepositoryImpl;
 import ru.itis.repositories.UsersRepository;
 import ru.itis.repositories.UsersRepositoryImpl;
 import ru.itis.services.UsersService;
@@ -36,7 +36,7 @@ public class SignInServlet extends HttpServlet {
             Connection connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
 
             UsersRepository usersRepository = new UsersRepositoryImpl(connection);
-            AuthRepository authRepository = new AuthRepostoryImpl(connection);
+            AuthRepository authRepository = new AuthRepositoryImpl(connection);
             usersService = new UsersServicesImpl(usersRepository, authRepository);
         } catch (SQLException | ClassNotFoundException e) {
             System.out.println("Unavailable");
